@@ -9,8 +9,9 @@ Plug 'chriskempson/base16-vim'
 Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
 Plug 'ntpeters/vim-better-whitespace'
-"Plug 'w0rp/ale'
-
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'w0rp/ale'
 
 call plug#end()
 
@@ -50,6 +51,7 @@ set colorcolumn=80
 set list            " show unprintable characters after the line
 set listchars=tab:·\ ,trail:·
 
+set mouse=a
 
 "" Fix backspace indent
 set backspace=indent,eol,start
@@ -96,13 +98,13 @@ set clipboard=unnamedplus
 "let g:ale_linters = {
 "\   'javascript': ['eslint'],
 "\ }
-"
-"nmap <silent> [W <Plug>(ale_first)
-"nmap <silent> [w <Plug>(ale_previous)
-"nmap <silent> ]w <Plug>(ale_next)
-"nmap <silent> ]W <Plug>(ale_last)
-"
-"
+
+nmap <silent> [W <Plug>(ale_first)
+nmap <silent> [w <Plug>(ale_previous)
+nmap <silent> ]w <Plug>(ale_next)
+nmap <silent> ]W <Plug>(ale_last)
+
+
 "let g:grepper = {}
 "let g:grepper.tools = ['grep', 'git', 'rg']
 "" Search for the current word
