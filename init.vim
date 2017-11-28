@@ -1,3 +1,5 @@
+"" Map leader to ,
+let mapleader=','
 
 call plug#begin(expand('~/.config/nvim/plugged'))
 
@@ -12,6 +14,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
+Plug 'mhinz/vim-grepper'
 
 call plug#end()
 
@@ -33,6 +36,26 @@ let g:indentLine_enabled = 1
 let g:indentLine_concealcursor = 0
 let g:indentLine_char = '┆'
 let g:indentLine_faster = 1
+
+" ale
+"" For JavaScript files, use `eslint` (and only eslint)
+"let g:ale_linters = {
+"\   'javascript': ['eslint'],
+"\ }
+nmap <silent> [W <Plug>(ale_first)
+nmap <silent> [w <Plug>(ale_previous)
+nmap <silent> ]w <Plug>(ale_next)
+nmap <silent> ]W <Plug>(ale_last)
+
+" vim-grepper
+let g:grepper = {}
+let g:grepper.tools = ['grep', 'git', 'rg']
+" Search for the current word
+nnoremap <Leader>* :Grepper -tool rg -open -switch -cword -noprompt<cr>
+
+"" Search for the current selection
+"nmap gs <plug>(GrepperOperator)
+"xmap gs <plug>(GrepperOperator)
 
 " base16 colorscheme
 if filereadable(expand("~/.vimrc_background"))
@@ -65,9 +88,6 @@ set softtabstop=0
 set shiftwidth=4
 set expandtab
 
-"" Map leader to ,
-let mapleader=','
-
 "" Searching
 set hlsearch
 set incsearch
@@ -87,6 +107,8 @@ nmap <C-k> <C-W>k<C-W>=
 nnoremap <Leader>+ <C-W>_
 nnoremap <Leader>= <C-W>=
 
+nnoremap <Leader>q :bdelete<CR>
+
 
 " in visual mode, set ctrl+c to copy to clipboard
 vmap <C-C> "+y
@@ -94,24 +116,5 @@ vmap <C-C> "+y
 set clipboard=unnamedplus
 
 
-"" For JavaScript files, use `eslint` (and only eslint)
-"let g:ale_linters = {
-"\   'javascript': ['eslint'],
-"\ }
-
-nmap <silent> [W <Plug>(ale_first)
-nmap <silent> [w <Plug>(ale_previous)
-nmap <silent> ]w <Plug>(ale_next)
-nmap <silent> ]W <Plug>(ale_last)
-
-
-"let g:grepper = {}
-"let g:grepper.tools = ['grep', 'git', 'rg']
-"" Search for the current word
-"nnoremap <Leader>* :Grepper -cword -noprompt<CR>
-"
-"" Search for the current selection
-"nmap gs <plug>(GrepperOperator)
-"xmap gs <plug>(GrepperOperator)
 
 autocmd FileType sql setlocal noexpandtab
