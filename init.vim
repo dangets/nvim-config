@@ -16,6 +16,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
 Plug 'mhinz/vim-grepper'
 
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+Plug 'elixir-editors/vim-elixir'
+Plug 'ElmCast/elm-vim'
 call plug#end()
 
 
