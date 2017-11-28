@@ -6,13 +6,11 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/base16-vim'
+Plug 'Raimondi/delimitMate'
+Plug 'Yggdroot/indentLine'
+Plug 'ntpeters/vim-better-whitespace'
 "Plug 'w0rp/ale'
 
-
-""" Include user's extra bundle
-"if filereadable(expand("~/.config/nvim/local_bundles.vim"))
-"  source ~/.config/nvim/local_bundles.vim
-"endif
 
 call plug#end()
 
@@ -25,12 +23,32 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
+" delimitMate
+let g:delimitMate_expand_space = 1
+let g:delimitMate_expand_cr = 2
 
+" IndentLine
+let g:indentLine_enabled = 1
+let g:indentLine_concealcursor = 0
+let g:indentLine_char = '┆'
+let g:indentLine_faster = 1
+
+" base16 colorscheme
 if filereadable(expand("~/.vimrc_background"))
     let base16colorspace=256
     source ~/.vimrc_background
 endif
 
+" better-whitespace
+autocmd BufEnter * EnableStripWhitespaceOnSave
+
+
+
+
+set nowrap
+set colorcolumn=80
+set list            " show unprintable characters after the line
+set listchars=tab:·\ ,trail:·
 
 
 "" Fix backspace indent
@@ -54,14 +72,16 @@ set incsearch
 set ignorecase
 set smartcase
 
+" number of lines visible above/below cursor when scrolling
+set scrolloff=3
 
 "" Buffers and splits
 set hidden
 set winminheight=0
 nmap <C-l> :bnext<CR>
 nmap <C-h> :bprevious<CR>
-nmap <C-j> <C-W>j
-nmap <C-k> <C-W>k
+nmap <C-j> <C-W>j<C-W>=
+nmap <C-k> <C-W>k<C-W>=
 nnoremap <Leader>+ <C-W>_
 nnoremap <Leader>= <C-W>=
 
@@ -92,3 +112,4 @@ set clipboard=unnamedplus
 "nmap gs <plug>(GrepperOperator)
 "xmap gs <plug>(GrepperOperator)
 
+autocmd FileType sql setlocal noexpandtab
