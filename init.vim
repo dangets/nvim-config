@@ -9,7 +9,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/base16-vim'
 Plug 'Raimondi/delimitMate'
-Plug 'Yggdroot/indentLine'
+"Plug 'Yggdroot/indentLine'     " screws up json quote display - conceallevel
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -21,6 +21,8 @@ Plug 'honza/vim-snippets'
 
 Plug 'elixir-editors/vim-elixir'
 Plug 'ElmCast/elm-vim'
+
+Plug 'ekalinin/Dockerfile.vim'
 call plug#end()
 
 
@@ -35,12 +37,6 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 " delimitMate
 let g:delimitMate_expand_space = 1
 let g:delimitMate_expand_cr = 2
-
-" IndentLine
-let g:indentLine_enabled = 1
-let g:indentLine_concealcursor = 0
-let g:indentLine_char = '┆'
-let g:indentLine_faster = 1
 
 " ale
 "" For JavaScript files, use `eslint` (and only eslint)
@@ -120,6 +116,7 @@ vmap <C-C> "+y
 " allow yanking/pasting between separate vim instances
 set clipboard=unnamedplus
 
-
+" shortcut to edit a file in current buffer directory
+map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 autocmd FileType sql setlocal noexpandtab
