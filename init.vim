@@ -15,6 +15,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
 Plug 'mhinz/vim-grepper'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -67,6 +69,8 @@ endif
 " better-whitespace
 autocmd BufEnter * EnableStripWhitespaceOnSave
 
+" snippets
+let g:UltiSnipsExpandTrigger="<tab>"
 
 
 
