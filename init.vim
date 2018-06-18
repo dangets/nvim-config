@@ -18,9 +18,6 @@ Plug 'mhinz/vim-grepper'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-
 Plug 'elixir-editors/vim-elixir'
 Plug 'ElmCast/elm-vim'
 
