@@ -15,6 +15,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
 Plug 'mhinz/vim-grepper'
+
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
@@ -68,6 +69,9 @@ autocmd BufEnter * EnableStripWhitespaceOnSave
 
 " snippets
 let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+
+imap <c-l> * <C-R>=UltiSnips#ListSnippets()<CR>
 
 
 
@@ -85,9 +89,9 @@ nnoremap <Space> <PageDown>
 nnoremap <BS> <PageUp>
 
 "" Tabs. May be overriten by autocmd rules
-set tabstop=4
+set tabstop=2
 set softtabstop=0
-set shiftwidth=4
+set shiftwidth=2
 set expandtab
 
 "" Searching
