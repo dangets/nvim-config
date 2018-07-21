@@ -17,6 +17,8 @@ Plug 'w0rp/ale'
 Plug 'mhinz/vim-grepper'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-fireplace'
 
 call plug#end()
 
@@ -38,6 +40,7 @@ let g:indentLine_enabled = 1
 let g:indentLine_concealcursor = 0
 let g:indentLine_char = '┆'
 let g:indentLine_faster = 1
+let g:indentLine_fileTypeExclude = ['json']
 
 " ale
 "" For JavaScript files, use `eslint` (and only eslint)
@@ -118,7 +121,6 @@ nnoremap <Leader>q :bdelete<CR>
 vmap <C-C> "+y
 " allow yanking/pasting between separate vim instances
 set clipboard=unnamedplus
-
 
 
 autocmd FileType sql setlocal noexpandtab
