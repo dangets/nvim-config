@@ -78,7 +78,9 @@ if filereadable(expand("~/.vimrc_background"))
 endif
 
 " better-whitespace
-autocmd BufEnter * EnableStripWhitespaceOnSave
+let g:better_whitespace_enabled = 1
+let g:strip_whitespace_on_save = 1
+let g:strip_whitespace_confirm = 0
 
 " snippets
 let g:UltiSnipsExpandTrigger="<tab>"
