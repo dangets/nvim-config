@@ -25,6 +25,7 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'ElmCast/elm-vim'
 
 Plug 'ekalinin/Dockerfile.vim'
+Plug 'dag/vim-fish'
 call plug#end()
 
 
