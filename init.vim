@@ -20,17 +20,20 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fireplace'
+"Plug 'tell-k/vim-autopep8'
+Plug 'Vimjas/vim-python-pep8-indent'
 
 Plug 'elixir-editors/vim-elixir'
 Plug 'ElmCast/elm-vim'
-
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'dag/vim-fish'
+Plug 'cespare/vim-toml'
 call plug#end()
 
 
 " FZF
-nnoremap <C-p> :<C-u>FZF<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <C-g> :Rg<CR>
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
@@ -71,6 +74,7 @@ nnoremap <Leader>* :Grepper -tool rg -open -switch -cword -noprompt<cr>
 
 " NERDCommenter
 let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
 
 " base16 colorscheme
 if filereadable(expand("~/.vimrc_background"))
@@ -92,7 +96,7 @@ imap <c-l> * <C-R>=UltiSnips#ListSnippets()<CR>
 
 
 set nowrap
-set colorcolumn=80
+set colorcolumn=100
 set list            " show unprintable characters after the line
 set listchars=tab:·\ ,trail:·
 
