@@ -28,6 +28,7 @@ Plug 'ElmCast/elm-vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'dag/vim-fish'
 Plug 'cespare/vim-toml'
+Plug 'hashivim/vim-terraform'
 call plug#end()
 
 
@@ -101,6 +102,8 @@ set list            " show unprintable characters after the line
 set listchars=tab:·\ ,trail:·
 
 set mouse=a
+" v--- workaround to permit mouse select, middle-click paste.  see https://github.com/neovim/neovim/issues/2325
+vmap <LeftRelease> "*ygv
 
 "" Fix backspace indent
 set backspace=indent,eol,start
