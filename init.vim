@@ -8,7 +8,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/base16-vim'
-Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
+Plug 'frazrepo/vim-rainbow'
 "Plug 'Yggdroot/indentLine'     " screws up json quote display - conceallevel
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
@@ -19,22 +20,23 @@ Plug 'mhinz/vim-grepper'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-fireplace'
-"Plug 'tell-k/vim-autopep8'
-Plug 'Vimjas/vim-python-pep8-indent'
 
+Plug 'tpope/vim-fireplace'
 Plug 'elixir-editors/vim-elixir'
 Plug 'ElmCast/elm-vim'
-Plug 'ekalinin/Dockerfile.vim'
 Plug 'dag/vim-fish'
 Plug 'cespare/vim-toml'
 Plug 'hashivim/vim-terraform'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'wlangstroth/vim-racket'
+
 call plug#end()
 
 
 " FZF
 nnoremap <C-p> :Files<CR>
 nnoremap <C-g> :Rg<CR>
+"nnoremap <C-p> :<C-u>FZF<CR>
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
@@ -63,6 +65,13 @@ nmap <silent> ]w <Plug>(ale_next)
 nmap <silent> ]W <Plug>(ale_last)
 nmap <silent> <F2> <Plug>(ale_next_wrap)
 
+" auto-pairs
+"  for Clojure don't auto close single quote and only jump on same line
+au FileType clojure let b:AutoPairs = AutoPairsDefine({"(":")//s"}, ["'"])
+
+" rainbow
+au FileType clojure call rainbow#load()
+
 " vim-grepper
 let g:grepper = {}
 let g:grepper.tools = ['grep', 'git', 'rg']
@@ -75,7 +84,6 @@ nnoremap <Leader>* :Grepper -tool rg -open -switch -cword -noprompt<cr>
 
 " NERDCommenter
 let g:NERDSpaceDelims = 1
-let g:NERDCompactSexyComs = 1
 
 " base16 colorscheme
 if filereadable(expand("~/.vimrc_background"))
@@ -87,6 +95,8 @@ endif
 let g:better_whitespace_enabled = 1
 let g:strip_whitespace_on_save = 1
 let g:strip_whitespace_confirm = 0
+let g:better_whitespace_filetypes_blacklist = ['diff', 'gitcommit', 'unite', 'qf', 'help']
+"autocmd BufEnter * EnableStripWhitespaceOnSave
 
 " snippets
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -97,7 +107,7 @@ imap <c-l> * <C-R>=UltiSnips#ListSnippets()<CR>
 
 
 set nowrap
-set colorcolumn=100
+set colorcolumn=80
 set list            " show unprintable characters after the line
 set listchars=tab:·\ ,trail:·
 
