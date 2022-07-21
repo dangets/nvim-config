@@ -36,7 +36,6 @@ call plug#end()
 " FZF
 nnoremap <C-p> :Files<CR>
 nnoremap <C-g> :Rg<CR>
-"nnoremap <C-p> :<C-u>FZF<CR>
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
@@ -121,7 +120,10 @@ set backspace=indent,eol,start
 nnoremap <Space> <PageDown>
 nnoremap <BS> <PageUp>
 
-"" Tabs. May be overriten by autocmd rules
+" remap lone 'x' to not overwrite data into buffer
+nnoremap x "_x
+
+" Tabs. May be overwritten by autocmd rules
 set tabstop=2
 set softtabstop=0
 set shiftwidth=2
